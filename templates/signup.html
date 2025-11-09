@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenTomes</title>
+    <link rel="stylesheet" href="../static/Bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../static/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-6.7.2-web/css/all.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-6.7.2-web/css/brands.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-6.7.2-web/css/fontawesome.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-6.7.2-web/css/regular.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-6.7.2-web/css/solid.css">
+    <link rel="stylesheet" href="../static/footer.css">
+    <script defer src="../static/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="">
+        <!-- navbar -->
+     <nav class="navbar navbar-expand-sm fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><h2 style="font-weight: bolder; color: white;">OpenTomes</h2></a>
+
+    <!-- Toggler Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Content -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav mx-auto">
+        {% if 'email' not in session %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">HOME</a></li>
+        {% else %}
+        <li class="nav-item"><a href="{{ url_for('account') }}" class="nav-link" style="font-weight: bolder;">ACCOUNT</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('category') }}">LIBRARY</a></li>
+        {% endif %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">ABOUT US</a></li>
+      </ul>
+
+      <!-- Right-aligned button -->
+      <div class="ms-auto">
+        {% if 'email' not in session %}
+        <a href="{{ url_for('signup') }}" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition" style="font-weight: bolder;">Sign in</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition" style="font-weight: bolder;">Logout</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+    </div><br><br><br><br>
+<div class="container"><br><br><br><br>
+    <div class="row">
+        <div class="col-md-6 d-none d-sm-block"><img src="../static/Images/732e65ef2035a6a620d8cd6f2dd84e19 (1).png" alt="" class="img-fluid rounded"></div>
+        <div class="col-md-6">
+            <div class="container">
+                <h1 style="font-weight: bolder;" class="text-center">Get Started</h1>
+                <p class="text-center">Already have an account ? <span style="color: blue;"> <a href="{{url_for('login')}}" style="text-decoration: none;"> Log in</a></span></p><br>
+                <form  action="{{url_for('signup')}}" method="POST">
+                    <label for="name">Name</label><br>
+                    <input type="text" name="name" placeholder="Enter Your Name" class="input2"><br>
+                    <label for="email">Email</label><br>
+                    <input type="email" class="input2" name="email" placeholder="Enter Your Email"><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" class="input2" name="password" placeholder="Enter Your Password"><br>
+                    <label for="confirm password">Confirm Password</label><br>
+                    <input type="password" class="input2" name="c_password" placeholder="Confirm Your Password"><br>
+                    <p style="color: red; text-align: end;">{{message1}}</p>
+                    <input type="submit" value="Sign Up" class="btn1">
+                </form>
+            </div>
+        </div>
+    </div>
+</div><br><br><br><br>
+</body>
+<footer class="footer">
+  <div class="container"><br>
+    <h1 class="text-white text-center">Contact</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="container"><br>
+        <h1 class="text-white">Got a Question!</h1>
+        <h5 class="text-white">Drop Me a Message</h5>
+      <p class="text-white">Discover Knowledge, inspire the Future</p>
+      <p class="text-white"><span class="fas fa-phone icon"></span> +237 673254504</p>
+      <p class="text-white"><span class="far fa-envelope icon"></span> paulndeh86@gmail.com</p>
+      <p class="text-white"><span class="fas fa-location-arrow icon"></span> Quatre Etage, Bonaberi, Douala</p>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="container">
+        <div class="card" style="background-color: #7949d3;"><br>
+          <div class="container">
+            <form action="" class="container">
+            <input type="text" placeholder="Name" class="input">
+            <input type="email" placeholder="Email" class="input">
+            <textarea name="" id="" placeholder="Message" class="input" rows="4"></textarea><br>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8"><input type="submit" value="Send" class="input1 text-white"></div>
+              <div class="col-2"></div>
+            </div><br>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  <hr style=" border: 0; border-top: 1px solid white;">
+  <div class="row">
+    <div class="col-md-4"><h3 class="text-white text-center">OpenTomes</h3></div>
+    <div class="col-md-4"><p class="text-white text-center" style="margin-top: 8px;">2025-Fozil Studio, All rights reserved</p></div>
+    <div class="col-md-4"><div class="d-flex justify-content-center"><a href="https://www.facebook.com/NdehPaulZuhwaimboh"><span class="fab fa-facebook text-white icon1"></span></a><a href="https://www.instagram.com/PappyZuh"><span class="fab fa-instagram text-white icon1"></span></a><a href="https://wa.me/673254504"><span class="fab fa-whatsapp text-white icon1"></span></a></div></div>
+  </div><br>
+  </div>
+
+</footer>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+<!-- custom script here  -->
+<script src="../static/js/jquery.js"></script>
+</html>
