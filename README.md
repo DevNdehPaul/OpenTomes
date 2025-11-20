@@ -25,6 +25,7 @@ It’s designed to be a convenient tool for research, learning, and reading from
 
 ## 📂 Project Structure
 OpenTomes/ 
+
 │── app.py # Main application entry point 
 
 │── database.db # SQLite database 
